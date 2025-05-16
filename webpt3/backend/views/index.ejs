@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin panle</title>
+</head>
+
+<body>
+    <h1>Records</h1>
+    <table border="2">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Number</th>
+            <th>Message</th>
+            <th>Actions</th>
+        </tr>
+        <% users.forEach(user=>{ %>
+            <tr>
+                <form action="/update/<%=user.id %>" method="post" enctype="multipart/form-data">
+                    <td><input name="name" value="<%=user.name %>"/></td>
+                    <td><input name= "email" value="<%=user.email %>"/></td>
+                    <td><input name="number" value="<%=user.number %>"/></td>
+                    <td><input name="message" value="<%=user.message %>"/></td>
+                    <td>
+                        <button type="submit">update</button>
+                        <a href="/delete/<%=user.id %>">delete</a>
+                    </td>
+                </form>
+            </tr>
+        <% })%>
+    </table>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Panel</title>
+</head>
+<body>
+  <h1>User Records</h1>
+  <table border="1">
+    <tr>
+      <th>Name</th><th>Email</th><th>Image</th><th>Actions</th>
+    </tr>
+    <% users.forEach(user => { %>
+      <tr>
+        <form action="/update/<%= user._id %>" method="POST" enctype="multipart/form-data">
+          <td><input name="name" value="<%= user.name %>" /></td>
+          <td><input name="email" value="<%= user.email %>" /></td>
+          <td>
+            <img src="/uploads/<%= user.image %>" width="50" />
+            <input type="file" name="image" />
+          </td>
+          <td>
+            <button type="submit">Update</button>
+            <a href="/delete/<%= user._id %>">Delete</a>
+          </td>
+        </form>
+      </tr>
+    <% }) %>
+  </table>
+</body>
+</html> -->
